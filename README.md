@@ -53,4 +53,132 @@ Doctors must request access to patient records
 
 Patients approve access via MetaMask (or mock wallet)
 
-Emergency “break-glass” QR allows limited data exposure
+Emergency “break-glass” QR allows limited data exposureX
+
+
+Folder Structure: 
+
+
+client/
+├── public/
+│   ├── index.html          # Main HTML file
+│   ├── favicon.ico         # App favicon
+│   ├── manifest.json       # Web app manifest
+│   └── assets/             # Static assets
+│       ├── images/         # Logos, icons, general images
+│       └── models/         # 3D models for Unity WebGL (AR)
+│
+├── src/
+│   ├── assets/
+│   │   ├── images/         # UI images
+│   │   ├── styles/         # Global CSS or Tailwind configs
+│   │   └── data/           # Mock data or static JSON
+│
+│   ├── components/
+│   │   ├── common/         # Shared reusable components
+│   │   │   ├── Button/
+│   │   │   ├── Modal/
+│   │   │   ├── Navbar/
+│   │   │   └── Loader/
+│   │   ├── doctor/         # Doctor-facing UI
+│   │   │   ├── Dashboard/
+│   │   │   ├── RecordAccess/
+│   │   │   ├── DiagnosisView/
+│   │   │   ├── ARViewer/
+│   │   │   └── Profile/
+│   │   └── patient/        # Patient-facing UI
+│   │       ├── Dashboard/
+│   │       ├── RecordView/
+│   │       ├── DiagnosisView/
+│   │       ├── ARViewer/
+│   │       ├── AccessControl/
+│   │       └── Profile/
+│
+│   ├── pages/
+│   │   ├── Home.jsx
+│   │   ├── Login.jsx
+│   │   ├── DoctorDashboard.jsx
+│   │   ├── PatientDashboard.jsx
+│   │   └── NotFound.jsx
+│
+│   ├── context/
+│   │   ├── AuthContext.jsx
+│   │   ├── BlockchainContext.jsx
+│   │   └── DataContext.jsx
+│
+│   ├── hooks/
+│   │   ├── useAuth.js
+│   │   ├── useBlockchain.js
+│   │   └── useAR.js
+│
+│   ├── utils/
+│   │   ├── api.js
+│   │   ├── formatters.js
+│   │   └── constants.js
+│
+│   ├── App.jsx
+│   ├── index.jsx
+│   └── index.css
+│
+├── tailwind.config.js      # Tailwind setup
+├── package.json            # Frontend dependencies
+└── README.md               # Setup instructions
+
+
+
+
+server/
+├── config/
+│   ├── db.js               # MongoDB config
+│   └── blockchain.js       # Web3/Ethereum config
+│
+├── controllers/            # Request handlers
+│   ├── authController.js
+│   ├── recordController.js
+│   ├── diagnosisController.js
+│   └── blockchainController.js
+│
+├── models/                 # Mongoose schemas
+│   ├── User.js
+│   ├── Record.js
+│   └── Diagnosis.js
+│
+├── routes/                 # REST API routes
+│   ├── authRoutes.js
+│   ├── recordRoutes.js
+│   ├── diagnosisRoutes.js
+│   └── blockchainRoutes.js
+│
+├── services/               # Business logic
+│   ├── aiService/
+│   │   ├── jiviRadX.js         # CNN model logic
+│   │   └── imageProcessor.js   # Preprocessing
+│   ├── blockchainService/
+│   │   ├── contract.js         # Smart contract interaction
+│   │   └── metaMask.js         # Wallet handling
+│   └── storageService/
+│       └── mongoStorage.js     # File storage abstraction
+│
+├── middleware/
+│   ├── authMiddleware.js
+│   ├── errorMiddleware.js
+│   └── loggerMiddleware.js
+│
+├── utils/
+│   ├── errorHandler.js
+│   ├── validators.js
+│   └── constants.js
+│
+├── contracts/              # Smart contracts
+│   ├── HealthRecord.sol    # Solidity contract
+│   └── compile.js          # Compiler script
+│
+├── tests/
+│   ├── auth.test.js
+│   ├── record.test.js
+│   └── diagnosis.test.js
+│
+├── .env                    # Environment variables
+├── server.js               # Server entry point
+├── package.json            # Backend dependencies
+└── README.md               # Setup instructions
